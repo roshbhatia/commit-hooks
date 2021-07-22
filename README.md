@@ -10,7 +10,7 @@ From within this directory, run the following command to add this repo's content
 
 ```
 $> git config --global core.hooksPath $(pwd)
-$> chmod u+x $(pwd)/**/*.sh
+$> chmod u+x $(pwd)/*.sh
 ```
 
 ## Additional References

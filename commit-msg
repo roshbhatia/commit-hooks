@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Slightly modified version of https://gist.github.com/bartoszmajsak/1396344
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+
+# Check if the branch name already is present in commit -- usually, this would happen if I already prepended the branch name due to force of habit
+BRANCH_NAME_IN_COMMIT=$(grep -c "\[$BRANCH_NAME\]" $1)
+
+if [ -n "$BRANCH_NAME" ] && ! [[ $BRANCH_NAME_IN_COMMIT -ge 1 ]]; then 
+  sed -i.bak -e "1s%^%$BRANCH_NAME: %" $1
+fi
